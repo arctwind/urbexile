@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urbexile</title>
+
+<style>
+@font-face {
+  font-family: "BrandFont";
+  src: url("font.ttf") format("truetype");
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 55%),
+    radial-gradient(circle at 85% 70%, rgba(255,255,255,0.15), transparent 50%),
+    linear-gradient(160deg, #161616 0%, #222 45%, #101010 100%);
+  color: #f2f2f2;
+  font-family: "BrandFont", system-ui, sans-serif;
+}
+
+.wrapper {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+  transition:
+    opacity 800ms ease,
+    transform 800ms cubic-bezier(0.2,0.8,0.2,1);
+}
+
+.wrapper.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin: 14px 0 0;
+  font-size: clamp(14px, 2.2vw, 24px);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.86;
+}
+</style>
+</head>
+<body>
+  <div class="wrapper" id="app">
+    <h1 class="title">Urbexile</h1>
+    <p class="subtitle">Arctwind 弧风科技发行</p>
+  </div>
+
+<script>
+requestAnimationFrame(() => {
+  document.getElementById('app').classList.add('visible');
+});
+</script>
+</body>
+</html>
